@@ -26,6 +26,7 @@ namespace Demo_Bank_App
                     exitApp = true;
                 }
 
+                //SIGNUP SECTION
                 if (selection.ToUpper() == "S")
                 {
                     Console.Write("Please enter your Fullname: ");
@@ -57,6 +58,7 @@ namespace Demo_Bank_App
                     Bank.customerProfiles.Add(customer);
                 }
 
+                //LOGIN SECTION
                 Customer activeCustomer = null;
 
                 if (selection.ToUpper() == "L")
