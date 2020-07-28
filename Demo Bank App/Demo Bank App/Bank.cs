@@ -55,16 +55,28 @@ namespace Demo_Bank_App
 
         public static void CreateAccount(Customer activeCustomer)
         {
-            Console.Write("Enter \"S\" to create a savings account or \"C\" for a current account: ");
-            string accountChoice = Console.ReadLine();
+            bool accepted = false;
+            string accountChoice = "";
 
-            if (accountChoice.ToUpper() == "S")
+            while (accepted == false)
             {
-                Console.Write("Enter initial balance (MUST be at least $100): ");
-            }
-            else if (accountChoice.ToUpper() == "C")
-            {
-                Console.Write("Enter initial balance (MUST be at least $1000): ");
+                Console.Write("Enter \"S\" to create a savings account or \"C\" for a current account: ");
+                accountChoice = Console.ReadLine();
+
+                if (accountChoice.ToUpper() == "S")
+                {
+                    Console.Write("Enter initial balance (MUST be at least $100): ");
+                    accepted = true;
+                }
+                else if (accountChoice.ToUpper() == "C")
+                {
+                    Console.Write("Enter initial balance (MUST be at least $1000): ");
+                    accepted = true;
+                }
+                else
+                {
+                    Console.WriteLine("Wrong selection. Try again!");
+                }
             }
 
             decimal initial = decimal.Parse(Console.ReadLine());
