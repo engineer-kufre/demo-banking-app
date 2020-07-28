@@ -17,9 +17,24 @@ namespace Demo_Bank_App
 
             while (isLoggedIn == false && exitApp == false)
             {
-                Console.WriteLine("Good day. Would like to log in or sign up as a new customer?");
-                Console.Write("Enter \"L\" to log in or \"S\" to sign up or \"X\" to exit the app: ");
-                string selection = Console.ReadLine();
+                bool correctSelection = false;
+                string selection = "";
+                while (correctSelection == false)
+                {
+                    Console.WriteLine("Good day. Would like to log in or sign up as a new customer?");
+                    Console.Write("Enter \"L\" to log in or \"S\" to sign up or \"X\" to exit the app: ");
+                    selection = Console.ReadLine();
+                    if (selection.ToUpper() == "X" || selection.ToUpper() == "S" || selection.ToUpper() == "L")
+                    {
+                        correctSelection = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong selection. Try again!");
+                    }
+                }
+
+                correctSelection = false;
 
                 if (selection.ToUpper() == "X")
                 {
@@ -89,17 +104,37 @@ namespace Demo_Bank_App
 
                 while (isLoggedIn == true)
                 {
-                    Console.WriteLine($"What would you like to do, {activeCustomer.CustomerName}?");
-                    Console.WriteLine("Please select an option by entering the corresponding number:");
-                    Console.WriteLine("1. Create a new account.");
-                    Console.WriteLine("2. Make a cash deposit.");
-                    Console.WriteLine("3. Make a cash withdrawal.");
-                    Console.WriteLine("4. Make a cash transfer.");
-                    Console.WriteLine("5. View account balance.");
-                    Console.WriteLine("6. View an account statement.");
-                    Console.WriteLine("7. Log out.");
-                    Console.Write("I'd like to: ");
-                    string choice = Console.ReadLine();
+                    if (activeCustomer.allSavingsAccounts.Count == 0 && activeCustomer.allCurrentAccounts.Count == 0)
+                    {
+                        Console.WriteLine("This is your first time here. You are required to create a new account.");
+                        Bank.CreateAccount(activeCustomer);
+                    }
+
+                    string choice = "";
+                    while (correctSelection == false)
+                    {
+                        Console.WriteLine($"What would you like to do, {activeCustomer.CustomerName}?");
+                        Console.WriteLine("Please select an option by entering the corresponding number:");
+                        Console.WriteLine("1. Create a new account.");
+                        Console.WriteLine("2. Make a cash deposit.");
+                        Console.WriteLine("3. Make a cash withdrawal.");
+                        Console.WriteLine("4. Make a cash transfer.");
+                        Console.WriteLine("5. View account balance.");
+                        Console.WriteLine("6. View an account statement.");
+                        Console.WriteLine("7. Log out.");
+                        Console.Write("I'd like to: ");
+                        choice = Console.ReadLine();
+                        if (choice == "1" || choice == "2" || choice == "3" || choice == "4" || choice == "5" || choice == "6" || choice == "7")
+                        {
+                            correctSelection = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Wrong selection. Try again!");
+                        }
+                    }
+
+                    correctSelection = false;
 
                     if (choice == "1")
                     {

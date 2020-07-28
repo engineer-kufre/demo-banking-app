@@ -57,7 +57,15 @@ namespace Demo_Bank_App
         {
             Console.Write("Enter \"S\" to create a savings account or \"C\" for a current account: ");
             string accountChoice = Console.ReadLine();
-            Console.Write("Enter initial balance (MUST be at least $100 for Savings account or $1000 for Current account): ");
+
+            if (accountChoice.ToUpper() == "S")
+            {
+                Console.Write("Enter initial balance (MUST be at least $100): ");
+            }
+            else if (accountChoice.ToUpper() == "C")
+            {
+                Console.Write("Enter initial balance (MUST be at least $1000): ");
+            }
 
             decimal initial = decimal.Parse(Console.ReadLine());
             if (accountChoice.ToUpper() == "S")
