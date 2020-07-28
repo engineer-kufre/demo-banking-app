@@ -51,8 +51,8 @@ Current Account:
 
 Sample Statement of Account:
 
-Full Name		Account Number		Type					Amount					Balance						Note								Date
+Full Name	|	Account Number	|	Type			|		Amount			|		Balance			|			Note							|	Date
 
-John Doe		1234567890				Savings				$1000:00				$1000:00					Initial balance			6/28/2020
+John Doe	|	1234567890			|	Savings		|		$1000:00		|		$1000:00		|			Initial balance		|	6/28/2020
 
-John Doe		1234567890				Savings				($200:00)				$800:00						Buy a bag						6/30/2020
+John Doe	|	1234567890			|	Savings		|		($200:00)		|		$800:00			|			Buy a bag					|	6/30/2020
